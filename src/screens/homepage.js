@@ -51,7 +51,7 @@ const Homepage = ({navigation}) => {
   }, []);
 
   return (
-    <SafeAreaView>
+    <View>
       <FlatList
         data={data}
         renderItem={ ({item}) =>
@@ -72,7 +72,7 @@ const Homepage = ({navigation}) => {
             </TouchableOpacity>
         }
       />
-    </SafeAreaView>
+    </View>
   );
 }
 

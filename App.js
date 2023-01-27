@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator screenOptions={{headerShown: Platform.OS === 'ios'}}>
         <Stack.Screen name="Home" component={Homepage} />
         <Stack.Screen name='Detail' component={Detailpage}/>
       </Stack.Navigator>
