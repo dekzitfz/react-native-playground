@@ -57,7 +57,9 @@ const Homepage = ({navigation}) => {
             <TouchableOpacity
                 onPress={() =>{
                     console.log(item.name + " selected");
-                    navigation.navigate('Detail');
+                    navigation.navigate('Detail',{
+                      name: item.name
+                    });
                 }}
             >
                 <View style={styles.item}>
