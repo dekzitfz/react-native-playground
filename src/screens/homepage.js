@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
     return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonId + ".png";
   }
 
+  const getPokemonId = (url) => {
+    const rightSide = url.substring(34, url.length);
+    return rightSide.substring(0, rightSide.indexOf('/'));
+  }
+
 const Homepage = ({navigation}) => {
     const [data, setData] = useState([]);
 
@@ -58,7 +63,8 @@ const Homepage = ({navigation}) => {
                 onPress={() =>{
                     console.log(item.name + " selected");
                     navigation.navigate('Detail',{
-                      name: item.name
+                      name: item.name,
+                      id: getPokemonId(item.url)
                     });
                 }}
             >
