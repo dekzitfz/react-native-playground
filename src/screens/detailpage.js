@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SvgUri } from "react-native-svg";
 
 const styles = StyleSheet.create({
@@ -10,12 +10,11 @@ const styles = StyleSheet.create({
         padding: 4
     },
     top: {
-        backgroundColor: 'transparent',
-        flex: 1,
-        alignItems: 'flex-end'
+        backgroundColor: 'transparent'
     },
     bottom: {
         backgroundColor: 'white',
+        borderRadius: 8,
         flex: 3,
         margin: 2
     },
@@ -23,6 +22,13 @@ const styles = StyleSheet.create({
       position: 'absolute',
       alignSelf: 'center',
       top: 10
+    },
+    title: {
+      color: 'white',
+      alignSelf: 'auto',
+      fontSize: 24,
+      fontFamily: 'poppins_bold',
+      lineHeight: 32
     }
 });
 
@@ -57,16 +63,32 @@ export default Detailpage = ({route, navigation}) => {
         <View style={styles.main}>
 
             <View style={styles.top}>
-                <Image source={require('../../assets/img/pokeball.png')}/>
+
+              <View style={{
+                flex: 1,
+                flexDirection: 'row',
+                position: 'absolute',
+                top: 10,
+                left: 10
+              }}>
+                <TouchableOpacity 
+                  onPress={() => {
+                    navigation.goBack();
+                  }}>
+                  <Image style={{marginRight: 6}} source={require('../../assets/img/arrow_back.png')}/>
+                </TouchableOpacity>
+                <Text style={styles.title}>{name}</Text>
+              </View>
+              
+
+              <Image style={{
+                alignSelf: 'flex-end',
+                }} source={require('../../assets/img/pokeball.png')}/>
+
             </View>
 
             <View style={styles.bottom}></View>
 
-            {/* <Image 
-                source={{uri: "https://unpkg.com/pokeapi-sprites@2.0.4/sprites/pokemon/other/dream-world/"+ id +".svg"}} 
-                style={styles.image} 
-                resizeMode='contain'
-            /> */}
             <SvgUri
                 style={styles.image}
                 width="50%"
