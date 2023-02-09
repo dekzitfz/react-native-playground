@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     const baseURL = 'https://pokeapi.co/api/v2/';
     return axios({
       method: 'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0'
+      url: 'https://pokeapi.co/api/v2/pokemon?limit=100&offset=0'
     });
   }
 

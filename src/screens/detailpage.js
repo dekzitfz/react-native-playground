@@ -2,10 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SvgUri } from "react-native-svg";
+import { getPokemonColorType } from "../util/colortype";
 
 const styles = StyleSheet.create({
     main: {
-        backgroundColor: '#74CB48',
         flex: 1,
         padding: 4
     },
@@ -60,7 +60,7 @@ export default Detailpage = ({route, navigation}) => {
       }, []);
 
     return(
-        <View style={styles.main}>
+        <View style={[styles.main, pokemon && getPokemonColorType(pokemon.types[0].type.name)]}>
 
             <View style={styles.top}>
 
