@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SvgUri } from "react-native-svg";
 import { getPokemonColorType } from "../util/colortype";
 
@@ -16,12 +16,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 8,
         flex: 3,
-        margin: 2
+        margin: 2,
+        paddingLeft: 8,
+        paddingRight: 8,
+        paddingBottom: 8,
+        paddingTop: 90
     },
     image: {
       position: 'absolute',
       alignSelf: 'center',
-      top: 10
+      top: 80
     },
     title: {
       color: 'white',
@@ -29,6 +33,19 @@ const styles = StyleSheet.create({
       fontSize: 24,
       fontFamily: 'poppins_bold',
       lineHeight: 32
+    },
+    type: {
+      paddingTop: 2,
+      paddingBottom: 2,
+      paddingLeft: 6,
+      paddingRight: 6,
+      alignItems: 'center',
+      flexGrow: 0,
+      flexDirection: 'row',
+      maxHeight: 25,
+      borderRadius: 10,
+      marginStart: 4,
+      marginRight: 4
     }
 });
 
@@ -43,7 +60,7 @@ const loadDetailPokemon = (name) => {
 export default Detailpage = ({route, navigation}) => {
 
     const [pokemon, setPokemon] = useState(null);
-    const [isLoading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(true);
     const { name, id } = route.params;
 
     useEffect(() => {
@@ -59,8 +76,9 @@ export default Detailpage = ({route, navigation}) => {
           });
       }, []);
 
-    return(
-        <View style={[styles.main, pokemon && getPokemonColorType(pokemon.types[0].type.name)]}>
+    if(!isLoading && pokemon){
+      return(
+        <View style={[styles.main, getPokemonColorType(pokemon.types[0].type.name)]}>
 
             <View style={styles.top}>
 
@@ -87,17 +105,39 @@ export default Detailpage = ({route, navigation}) => {
 
             </View>
 
-            <View style={styles.bottom}></View>
+            <View style={styles.bottom}>
+              <FlatList 
+                style={{
+                  alignSelf: 'center'
+                }}
+                horizontal={true}
+                data={pokemon.types}
+                renderItem={ ({item}) => 
+                  <View style={[styles.type, getPokemonColorType(item.type.name)]}>
+                    <Text style={{
+                      color: 'white',
+                      fontSize: 11,
+                      lineHeight: 16,
+                      fontFamily: 'poppins_bold'
+                    }}>{item.type.name}</Text>
+                  </View>
+                  
+                }
+              />
+            </View>
 
             <SvgUri
                 style={styles.image}
                 width="50%"
-                height="50%"
-                uri={"https://unpkg.com/pokeapi-sprites@2.0.4/sprites/pokemon/other/dream-world/"+ id +".svg"}
+                height="25%"
+                uri={pokemon.sprites.other.dream_world.front_default}
             />
 
             {/* {isLoading && <Text>Loading...</Text>} */}
             {/* {!isLoading && pokemon && <Text>Detail Page for {pokemon.name}</Text>} */}
         </View>
     );
+    }else{
+      return(<Text>Loading...</Text>)
+    }
 }
