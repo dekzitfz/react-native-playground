@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SvgUri } from "react-native-svg";
 import { getPokemonColorType } from "../util/colortype";
-import styles from './Detail.component.style'
+import textColor, { getTextColor } from '../util/textcolortype';
+import styles from './Detail.component.style';
 
 const loadDetailPokemon = (name) => {
     const baseURL = 'https://pokeapi.co/api/v2/';
@@ -38,13 +39,7 @@ export default Detailpage = ({route, navigation}) => {
 
             <View style={styles.top}>
 
-              <View style={{
-                flex: 1,
-                flexDirection: 'row',
-                position: 'absolute',
-                top: 10,
-                left: 10
-              }}>
+              <View style={styles.topbar}>
                 <TouchableOpacity 
                   onPress={() => {
                     navigation.goBack();
@@ -55,17 +50,13 @@ export default Detailpage = ({route, navigation}) => {
               </View>
               
 
-              <Image style={{
-                alignSelf: 'flex-end',
-                }} source={require('../../assets/img/pokeball.png')}/>
+              <Image style={{alignSelf: 'flex-end'}} source={require('../../assets/img/pokeball.png')}/>
 
             </View>
 
             <View style={styles.bottom}>
               <FlatList 
-                style={{
-                  alignSelf: 'center'
-                }}
+                style={{alignSelf: 'center', flexGrow: 0}}
                 horizontal={true}
                 data={pokemon.types}
                 renderItem={ ({item}) => 
@@ -80,6 +71,48 @@ export default Detailpage = ({route, navigation}) => {
                   
                 }
               />
+
+              <View style={{height: 16}}/> 
+              <Text 
+                style={[
+                  styles.sectionText, 
+                  getTextColor(pokemon.types[0].type.name)
+                ]}
+              >About</Text>
+
+              <View style={{height: 16}}/> 
+              <View style={{
+                flexDirection: 'row', 
+                height: 50
+              }}>
+                <View style={{flex: 1, flexDirection: 'column', backgroundColor: 'transparent'}}>
+                  <View style={{
+                    flex: 3, 
+                    flexDirection: 'row',
+                    alignSelf: 'center',
+                    alignItems: 'center'
+                  }}>
+                    <Image style={{marginRight: 8, width: 18, height: 18}} source={require('../../assets/img/weight.png')}/>
+                    <Text style={{
+                      fontFamily: 'poppins_regular',
+                      fontSize: 13,
+                      lineHeight: 17
+                    }}>{pokemon.weight} kg</Text>
+                  </View>
+                  <Text style={{
+                    flex: 2,
+                    alignSelf: 'center',
+                    fontFamily: 'poppins_regular',
+                    fontSize: 10,
+                    lineHeight: 14,
+                    color:'#666666'
+                  }}>Weight</Text>
+                </View>
+                <View style={styles.verticalLine}></View>
+                <View style={{flex: 1, backgroundColor: 'transparent'}}></View>
+                <View style={styles.verticalLine}></View>
+                <View style={{flex: 1, backgroundColor: 'transparent'}}></View>
+              </View>
             </View>
 
             <SvgUri

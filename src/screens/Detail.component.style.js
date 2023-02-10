@@ -42,5 +42,24 @@ export default StyleSheet.create({
       borderRadius: 10,
       marginStart: 4,
       marginRight: 4
+    },
+    sectionText: {
+        fontFamily: 'poppins_bold',
+        fontSize: 14,
+        lineHeight: 16,
+        alignSelf: 'center',
+        margin: 4
+    },
+    topbar: {
+        flex: 1,
+        flexDirection: 'row',
+        position: 'absolute',
+        top: 10,
+        left: 10
+    },
+    verticalLine: {
+        height: '100%',
+        width: 1,
+        backgroundColor: '#E0E0E0'
     }
 });
