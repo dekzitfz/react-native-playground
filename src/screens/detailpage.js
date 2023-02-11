@@ -40,21 +40,26 @@ export default Detailpage = ({route, navigation}) => {
             <View style={styles.top}>
 
               <View style={styles.topbar}>
+
+                {/* BACK BUTTON */}
                 <TouchableOpacity 
                   onPress={() => {
                     navigation.goBack();
                   }}>
                   <Image style={{marginRight: 6}} source={require('../../assets/img/arrow_back.png')}/>
                 </TouchableOpacity>
+
+                {/* POKEMON NAME */}
                 <Text style={styles.title}>{name}</Text>
               </View>
               
 
               <Image style={{alignSelf: 'flex-end'}} source={require('../../assets/img/pokeball.png')}/>
-
             </View>
 
             <View style={styles.bottom}>
+
+              {/* POKEMON TYPES */}
               <FlatList 
                 style={{alignSelf: 'center', flexGrow: 0}}
                 horizontal={true}
@@ -81,10 +86,14 @@ export default Detailpage = ({route, navigation}) => {
               >About</Text>
 
               <View style={{height: 16}}/> 
+
+              {/* POKEMON ATTRIBUTES */}
               <View style={{
                 flexDirection: 'row', 
                 height: 50
               }}>
+
+                {/* POKEMON WEIGHT */}
                 <View style={{flex: 1, flexDirection: 'column', backgroundColor: 'transparent'}}>
                   <View style={{
                     flex: 3, 
@@ -92,29 +101,34 @@ export default Detailpage = ({route, navigation}) => {
                     alignSelf: 'center',
                     alignItems: 'center'
                   }}>
-                    <Image style={{marginRight: 8, width: 18, height: 18}} source={require('../../assets/img/weight.png')}/>
-                    <Text style={{
-                      fontFamily: 'poppins_regular',
-                      fontSize: 13,
-                      lineHeight: 17
-                    }}>{pokemon.weight} kg</Text>
+                    <Image style={{marginRight: 8}} source={require('../../assets/img/weight.png')}/>
+                    <Text style={styles.sectionTextValue}>{pokemon.weight} kg</Text>
                   </View>
-                  <Text style={{
-                    flex: 2,
-                    alignSelf: 'center',
-                    fontFamily: 'poppins_regular',
-                    fontSize: 10,
-                    lineHeight: 14,
-                    color:'#666666'
-                  }}>Weight</Text>
+                  <Text style={styles.sectionTextLabel}>Weight</Text>
                 </View>
                 <View style={styles.verticalLine}></View>
-                <View style={{flex: 1, backgroundColor: 'transparent'}}></View>
+
+                {/* POKEMON HEIGHT */}
+                <View style={{flex: 1, flexDirection: 'column', backgroundColor: 'transparent'}}>
+                <View style={{
+                    flex: 3, 
+                    flexDirection: 'row',
+                    alignSelf: 'center',
+                    alignItems: 'center'
+                  }}>
+                    <Image style={{marginRight: 8}} source={require('../../assets/img/straighten.png')}/>
+                    <Text style={styles.sectionTextValue}>{pokemon.height} m</Text>
+                  </View>
+                  <Text style={styles.sectionTextLabel}>Height</Text>
+                </View>
                 <View style={styles.verticalLine}></View>
+
+                {/* POKEMON MOVES */}
                 <View style={{flex: 1, backgroundColor: 'transparent'}}></View>
               </View>
             </View>
 
+            {/* POKEMON IMAGE */}
             <SvgUri
                 style={styles.image}
                 width="50%"

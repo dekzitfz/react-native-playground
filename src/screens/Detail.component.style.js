@@ -19,29 +19,29 @@ export default StyleSheet.create({
         paddingTop: 90
     },
     image: {
-      position: 'absolute',
-      alignSelf: 'center',
-      top: 80
+        position: 'absolute',
+        alignSelf: 'center',
+        top: 80
     },
     title: {
-      color: 'white',
-      alignSelf: 'auto',
-      fontSize: 24,
-      fontFamily: 'poppins_bold',
-      lineHeight: 32
+        color: 'white',
+        alignSelf: 'auto',
+        fontSize: 24,
+        fontFamily: 'poppins_bold',
+        lineHeight: 32
     },
     type: {
-      paddingTop: 2,
-      paddingBottom: 2,
-      paddingLeft: 6,
-      paddingRight: 6,
-      alignItems: 'center',
-      flexGrow: 0,
-      flexDirection: 'row',
-      maxHeight: 25,
-      borderRadius: 10,
-      marginStart: 4,
-      marginRight: 4
+        paddingTop: 2,
+        paddingBottom: 2,
+        paddingLeft: 6,
+        paddingRight: 6,
+        alignItems: 'center',
+        flexGrow: 0,
+        flexDirection: 'row',
+        maxHeight: 25,
+        borderRadius: 10,
+        marginStart: 4,
+        marginRight: 4
     },
     sectionText: {
         fontFamily: 'poppins_bold',
@@ -49,6 +49,19 @@ export default StyleSheet.create({
         lineHeight: 16,
         alignSelf: 'center',
         margin: 4
+    },
+    sectionTextLabel: {
+        flex: 2,
+        alignSelf: 'center',
+        fontFamily: 'poppins_regular',
+        fontSize: 10,
+        lineHeight: 14,
+        color:'#666666'
+    },
+    sectionTextValue: {
+        fontFamily: 'poppins_regular',
+        fontSize: 13,
+        lineHeight: 17
     },
     topbar: {
         flex: 1,
