@@ -154,11 +154,7 @@ export default Detailpage = ({route, navigation}) => {
 
               <View style={{height: 20}}/>
 
-              <Text style={{
-                textAlign: 'justify',
-                paddingStart: 10,
-                paddingEnd: 10
-              }}>{
+              <Text style={styles.descriptionText}>{
               species && 
               species.flavor_text_entries
                 .filter(flavor => flavor.language.name == "en")[0]

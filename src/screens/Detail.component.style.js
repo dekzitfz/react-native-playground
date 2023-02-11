@@ -74,5 +74,13 @@ export default StyleSheet.create({
         height: '100%',
         width: 1,
         backgroundColor: '#E0E0E0'
+    },
+    descriptionText: {
+        textAlign: 'justify',
+        paddingStart: 10,
+        paddingEnd: 10,
+        fontFamily: 'poppins_regular',
+        fontSize: 13,
+        lineHeight: 16
     }
 });
