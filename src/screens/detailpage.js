@@ -14,9 +14,14 @@ const loadDetailPokemon = (name) => {
     });
   }
 
+const loadSpeciesPokemon = (url) => {
+  return axios({method: 'GET',url: url});
+}
+
 export default Detailpage = ({route, navigation}) => {
 
     const [pokemon, setPokemon] = useState(null);
+    const [species, setSpecies] = useState(null);
     const [isLoading, setLoading] = useState(true);
     const { name, id } = route.params;
 
@@ -24,8 +29,16 @@ export default Detailpage = ({route, navigation}) => {
         setLoading(true);
         loadDetailPokemon(name)
           .then(response => {
-            setLoading(false)
-            setPokemon(response.data)
+            setLoading(false);
+            setPokemon(response.data);
+
+            loadSpeciesPokemon(response.data.species.url)
+              .then(species =>{
+                setSpecies(species.data)
+              })
+              .catch(error => {
+                console.error(error);
+              })
           })
           .catch(error => {
             setLoading(false)
@@ -138,6 +151,20 @@ export default Detailpage = ({route, navigation}) => {
                   <Text style={styles.sectionTextLabel}>Moves</Text>
                 </View>
               </View>
+
+              <View style={{height: 20}}/>
+
+              <Text style={{
+                textAlign: 'justify',
+                paddingStart: 10,
+                paddingEnd: 10
+              }}>{
+              species && 
+              species.flavor_text_entries
+                .filter(flavor => flavor.language.name == "en")[0]
+                .flavor_text.replace(/(\r\n|\n|\r)/gm, " ")
+              }</Text>
+
             </View>
 
             {/* POKEMON IMAGE */}
