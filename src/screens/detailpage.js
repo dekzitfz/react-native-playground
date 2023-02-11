@@ -96,7 +96,7 @@ export default Detailpage = ({route, navigation}) => {
                 {/* POKEMON WEIGHT */}
                 <View style={{flex: 1, flexDirection: 'column', backgroundColor: 'transparent'}}>
                   <View style={{
-                    flex: 3, 
+                    flex: 5, 
                     flexDirection: 'row',
                     alignSelf: 'center',
                     alignItems: 'center'
@@ -110,8 +110,8 @@ export default Detailpage = ({route, navigation}) => {
 
                 {/* POKEMON HEIGHT */}
                 <View style={{flex: 1, flexDirection: 'column', backgroundColor: 'transparent'}}>
-                <View style={{
-                    flex: 3, 
+                  <View style={{
+                    flex: 5, 
                     flexDirection: 'row',
                     alignSelf: 'center',
                     alignItems: 'center'
@@ -124,7 +124,19 @@ export default Detailpage = ({route, navigation}) => {
                 <View style={styles.verticalLine}></View>
 
                 {/* POKEMON MOVES */}
-                <View style={{flex: 1, backgroundColor: 'transparent'}}></View>
+                <View style={{flex: 1, flexDirection: 'column', backgroundColor: 'transparent'}}>
+                  <View style={{
+                    flex: 5, 
+                    flexDirection: 'column',
+                    alignSelf: 'center',
+                    paddingStart: 8,
+                    paddingEnd: 8
+                  }}>
+                    {pokemon.moves[0] && <Text style={styles.sectionTextValue}>{pokemon.moves[0].move.name}</Text>}
+                    {pokemon.moves[1] && <Text style={styles.sectionTextValue}>{pokemon.moves[1].move.name}</Text>}
+                  </View>
+                  <Text style={styles.sectionTextLabel}>Moves</Text>
+                </View>
               </View>
             </View>
 

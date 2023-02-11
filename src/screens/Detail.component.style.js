@@ -54,14 +54,14 @@ export default StyleSheet.create({
         flex: 2,
         alignSelf: 'center',
         fontFamily: 'poppins_regular',
-        fontSize: 10,
-        lineHeight: 14,
+        fontSize: 8,
+        lineHeight: 12,
         color:'#666666'
     },
     sectionTextValue: {
         fontFamily: 'poppins_regular',
-        fontSize: 13,
-        lineHeight: 17
+        fontSize: 12,
+        lineHeight: 16
     },
     topbar: {
         flex: 1,
