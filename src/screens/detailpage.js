@@ -36,8 +36,8 @@ export default Detailpage = ({route, navigation}) => {
               .then(species =>{
                 setSpecies(species.data)
               })
-              .catch(error => {
-                console.error(error);
+              .catch(err => {
+                console.error(err);
               })
           })
           .catch(error => {
@@ -83,7 +83,7 @@ export default Detailpage = ({route, navigation}) => {
                       color: 'white',
                       fontSize: 11,
                       lineHeight: 16,
-                      fontFamily: 'poppins_bold'
+                      fontFamily: 'Poppins-Bold'
                     }}>{item.type.name}</Text>
                   </View>
                   

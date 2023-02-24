@@ -27,7 +27,7 @@ export default StyleSheet.create({
         color: 'white',
         alignSelf: 'auto',
         fontSize: 24,
-        fontFamily: 'poppins_bold',
+        fontFamily: 'Poppins-Bold',
         lineHeight: 32
     },
     type: {
@@ -44,7 +44,7 @@ export default StyleSheet.create({
         marginRight: 4
     },
     sectionText: {
-        fontFamily: 'poppins_bold',
+        fontFamily: 'Poppins-Bold',
         fontSize: 14,
         lineHeight: 16,
         alignSelf: 'center',
@@ -53,13 +53,13 @@ export default StyleSheet.create({
     sectionTextLabel: {
         flex: 2,
         alignSelf: 'center',
-        fontFamily: 'poppins_regular',
+        fontFamily: 'Poppins-Regular',
         fontSize: 8,
         lineHeight: 12,
         color:'#666666'
     },
     sectionTextValue: {
-        fontFamily: 'poppins_regular',
+        fontFamily: 'Poppins-Regular',
         fontSize: 12,
         lineHeight: 16
     },
@@ -79,7 +79,7 @@ export default StyleSheet.create({
         textAlign: 'justify',
         paddingStart: 10,
         paddingEnd: 10,
-        fontFamily: 'poppins_regular',
+        fontFamily: 'Poppins-Regular',
         fontSize: 13,
         lineHeight: 16
     }
