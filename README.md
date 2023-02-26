@@ -1,5 +1,5 @@
 # react-native-playground
-a repo to learning react native
+a repo that I used to learning react native. Displaying list & details of pokemons from pokeapi.co
 
 ## how to run
 - ```npm install```
